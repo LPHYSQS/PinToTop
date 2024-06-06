@@ -50,7 +50,7 @@ internal abstract partial class Program
                 {
                     var process = _interactiveProcesses[processIndex];
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"已选择进程：{process.ProcessName}");
+                    Console.WriteLine($"已选择进程：{process.ProcessName} - {process.MainWindowTitle}");
                     Console.ResetColor();
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("请选择要执行的操作（1. 置顶窗口 2. 取消置顶窗口）：");
@@ -84,7 +84,7 @@ internal abstract partial class Program
         _interactiveProcesses = GetInteractiveProcesses();
         for (var i = 0; i < _interactiveProcesses.Length; i++)
         {
-            StringBuilder.AppendLine($"[{i}] {_interactiveProcesses[i].ProcessName}");
+            StringBuilder.AppendLine($"[{i}] {_interactiveProcesses[i].ProcessName} - {_interactiveProcesses[i].MainWindowTitle}");
         }
 
         Console.ForegroundColor = ConsoleColor.Green;
